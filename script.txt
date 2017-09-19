@@ -10,7 +10,7 @@ run_rules_on_level_start
 OBJECTS
 ========
 
-Background
+Background ,
 Black
 
 Player @
@@ -53,6 +53,14 @@ LightGray LightBlue
 00000
 11011
 11011
+
+WallC C
+Blue DarkBlue LightBlue
+00101
+10110
+01010
+10101
+10100
 
 Level1 1
 Brown Black
@@ -198,6 +206,54 @@ Brown DarkBrown
 01101
 00000
 
+Level4 4
+Green DarkGreen LightGreen
+00100
+10001
+01011
+01001
+11010
+
+Level4A
+Green DarkGreen LightGreen
+10100
+10000
+00100
+10011
+01010
+
+Level4B
+Green DarkGreen LightGreen
+10010
+02010
+00100
+00221
+01010
+
+Level4C
+Green DarkGreen LightGreen
+10120
+10000
+00100
+20011
+01010
+
+Level4D
+Green DarkGreen LightGreen Red
+01032
+31001
+00131
+13000
+01020
+
+Level4E
+Green DarkGreen LightGreen Yellow
+01312
+03001
+00103
+10300
+01020
+
 
 =======
 LEGEND
@@ -206,7 +262,8 @@ LEGEND
 Level1X = Level1A or Level1B or Level1C or Level1D or Level1E
 Level2X = Level2A or Level2B or Level2C or Level2D or Level2E
 Level3X = Level3A or Level3B or Level3C or Level3D or Level3E
-Wall = A or B or 1 or Level1X or 2 or Level2X or 3 or Level3X
+Level4X = Level4A or Level4B or Level4C or Level4D or Level4E
+Wall = A or B or C or 1 or Level1X or 2 or Level2X or 3 or Level3X or 4 or Level4X
 
 
 =======
@@ -231,6 +288,7 @@ RULES
 [Level1]->[random Level1X]
 [Level2]->[random Level2X]
 [Level3]->[random Level3X]
+[Level4]->[random Level4X]
 
 (Change Move counter)
 [Move1]->[]
@@ -330,5 +388,29 @@ B.3.............3.B
 B.3.33A.333.A33.3.B
 A...33A.....A33...A
 AABBBAAABBBAAABBBAA
+
+message Park - by Wajeemba
+
+CCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCC
+CCBBBBBBBBBBBBBBBBBCC
+CCB444444444444444BCC
+CCB444444444444444BCC
+CCB4444.......4444BCC
+CCB4444.44444.4444BCC
+CCB44..@........44BCC
+CCB44.4.44444.4.44BCC
+CCB44.4.44444.4.44BCC
+CCB44.4.44444.4.44BCC
+CCB44.4.44444.4.44BCC
+CCB44.4.44444.4.44BCC
+CCB44...........44BCC
+CCB4444.44444.4444BCC
+CCB4444.......4444BCC
+CCB444444444444444BCC
+CCB444444444444444BCC
+CCBBBBBBBBBBBBBBBBBCC
+CCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCC
 
 message For goodness sake, child!  I'm putting a bell on you so I never lose you again.
