@@ -448,11 +448,11 @@ CCCCCCCCCCCCCCCCCCCCC
 
 message For goodness sake, child!  I'm putting a bell on you so I never lose you again.
 
-message About a fortnight later...                                   Goodness, that child has run off again!
+message About a fortnight later...                                   Land sakes, that child has run off again!
 
 message Introducing: Crates! Crates can be pushed by the nanny and are too heavy to be moved by the girl.
 
-message However, you must not hit the girl with a crate! Make absolutely sure that there is nobody behind the crate before pushing it.
+message However, you must not hit the girl with a crate! You can't move a crate until you're absolutely sure that there is nobody behind it.
 
 message Grocer's Shoppe
 
@@ -468,7 +468,7 @@ A1.....@.....1B
 A1111111111111B
 AAAAAAAAAAAAAAA
 
-message Introducing: Doors... If you let the girl reaches the door, she will run outside; who knows if you would never find her again!
+message Introducing: Doors... If you let the girl reach the door she will run outside. Who knows if you would ever find her again!
 
 message Toy Shop, Diversions Galore!
 
@@ -527,9 +527,9 @@ CB4,,,,,,,,,,,,,,@4BC
 CBBBBEBBBBEBBBBEBBBBC
 CCCCBABCCBABCCBABCCCC
 
-message For goodness sake, child!  You'll be the death of me!  She mutters to herself: I'm altogether too old for this nonsense.
+message For goodness sake, child!  You'll be the death of me!  The nanny mutters to herself: I'm altogether too old for this nonsense.
 
-message As soon as the tired, part incorrigibly devious, part thoroughly chagrined pair return home...
+message As soon as the tired pair, part incorrigibly devious, part thoroughly chagrined return home...
 
 message Schrodinger! I am retiring from childminding. Keep track of her yourself!!
 
