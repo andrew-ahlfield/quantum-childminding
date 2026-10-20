@@ -288,6 +288,7 @@ Level2X = Level2A or Level2B or Level2C or Level2D or Level2E
 Level3X = Level3A or Level3B or Level3C or Level3D or Level3E
 Level4X = Level4A or Level4B or Level4C or Level4D or Level4E
 Wall = A or B or C or 1 or Level1X or 2 or Level2X or 3 or Level3X or 4 or Level4X or Crate
+Girl = Child or Wave
 
 
 =======
@@ -312,10 +313,10 @@ RULES
 (No escape)
 [> Player|Escape] -> CANCEL (added)
 
-(It's over)
+(She got away: if the girl, or anywhere she might be, reaches a door, freeze the level until
+ the player undoes or restarts. The web page shows a toast saying so; see scripts/build.mjs)
 [EscapedChild] -> CANCEL (added)
-late [Child Escape] -> [EscapedChild]
-late [Wave Escape] -> [EscapedChild]
+late [Girl Escape] -> [EscapedChild]
 
 (Decorate level)
 [Level1]->[random Level1X]
