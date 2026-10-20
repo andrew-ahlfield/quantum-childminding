@@ -1,5 +1,6 @@
 title Quantum Childminding - Expanded Levelset
 author Mark Richardson & Nils Jung
+homepage github.com/andrew-ahlfield/quantum-childminding
 noaction
 require_player_movement
 run_rules_on_level_start
@@ -537,4 +538,4 @@ message The next day...                                                     The 
 
 message Out of the corner of her trained eyes she notices a young one running away with his parents in tow.  A wry smile plays across her lips as her eyes fall back to the her book.                                                            Thank you for playing!
 
-message Credits:  Mark Richardson, originating author. Nils Jung, crates and doors mechanics and levels. Wajeemba, Park level and expanded levelset compilation and story. C4t5_4_3v3r, expanded texture set. 
+message Credits:  Mark Richardson, originating author. Nils Jung, crates and doors mechanics and levels. Wajeemba, Park level and expanded levelset compilation and story. C4t5_4_3v3r, expanded texture set.  Add a level: github.com/andrew-ahlfield/quantum-childminding
