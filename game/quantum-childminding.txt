@@ -369,9 +369,14 @@ some Player on Child
 LEVELS
 =======
 
-message ♪     Schrodinger's daughter     ♪ ♪      is a difficult girl.      ♪ ♪                                ♪ ♪     Look away for a second     ♪ ♪      and you'll lose her.      ♪
+(Text pages wrap at 34 columns. The note and any character without a font glyph take two
+ columns, and the engine trims leading spaces, so a page whose first line is indented starts
+ with U+2800, a blank braille cell that draws as nothing. Pages laid out line by line pad each
+ line to exactly 34 columns.)
 
-message ♪     She could be anywhere.     ♪ ♪                                ♪ ♪   She's actually everywhere!   ♪ ♪                                ♪ ♪     At least she is until      ♪ ♪        proven otherwise.       ♪
+message ♪     Schrodinger's daughter    ♪♪      is a difficult girl.     ♪♪                               ♪♪     Look away for a second    ♪♪      and you'll lose her.     ♪
+
+message ♪     She could be anywhere.    ♪♪                               ♪♪   She's actually everywhere!  ♪♪                               ♪♪     At least she is until     ♪♪       proven otherwise.       ♪
 
 message Schrodinger's nanny always finds her in the last place she looks, and only after exhausting all other possibilities.
 
@@ -449,7 +454,7 @@ CCCCCCCCCCCCCCCCCCCCC
 
 message For goodness sake, child!  I'm putting a bell on you so I never lose you again.
 
-message About a fortnight later...                                   Land sakes, that child has run off again!
+message ⠀  About a fortnight later...                                              Land sakes, that child       has run off again!
 
 message Introducing: Crates! Crates can be pushed by the nanny and are too heavy to be moved by the girl.
 
@@ -505,7 +510,7 @@ B.3.33A.3#3.A33.3.B
 A...33A.....A33...A
 AABBBAAABBBAAABBBAA
 
-message Child! Stop right there! Don't you DARE!
+message ⠀   Child! Stop right there!      Don't you DARE!
 
 message Hedgerow Labyrinth
 
@@ -534,8 +539,8 @@ message As soon as the tired pair, part incorrigibly devious, part thoroughly ch
 
 message Schrodinger! I am retiring from childminding. Keep track of her yourself!!
 
-message The next day...                                                     The nanny is on a much deserved holiday, sitting at the beach peacfully reading a book.  The surf is calming and her story is engaging.  She looks out at the sun above the water and sighs peacefully.
+message ⠀       The next day...                                               The nanny is on a much deserved     holiday, sitting at the beach       reading a book. The surf is     calming and her story is engaging. She looks out at the sun above the water and sighs peacefully.
 
-message Out of the corner of her trained eyes she notices a young one running away with his parents in tow.  A wry smile plays across her lips as her eyes fall back to the her book.                                                            Thank you for playing!
+message ⠀   Out of the corner of her          trained eyes she notices a      young one running away with his      parents in tow. A wry smile        plays across her lips as her       eyes fall back to her book.                                        Thank you for playing!
 
-message Credits:  Mark Richardson, originating author. Nils Jung, crates and doors mechanics and levels. Andrew Ahlfield (Wajeemba), Park level and expanded levelset compilation and story. higherkey (C4t5_4_3v3r), expanded texture set.  Add a level: github.com/andrew-ahlfield/quantum-childminding
+message ⠀           Credits                                                  Mark Richardson: the original game  Nils Jung: crates, doors, levels     Andrew Ahlfield: park, story           higherkey: textures                                                  Add your own level at           github.com/andrew-ahlfield/     quantum-childminding

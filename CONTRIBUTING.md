@@ -29,6 +29,9 @@ to play-test than a whole new level set.
   CREDITS.md rather than replacing their name.
 - **Story and messages** are part of the game. New levels that fit the story, or extend it,
   are best.
+- **Text pages wrap at 34 columns.** The note and any other character without a font glyph
+  take two, and leading spaces are trimmed; the comment above the first message in the game
+  explains the workaround. Read every page you touch in the built game, not just in the source.
 - **Engine changes belong upstream.** If you need PuzzleScript itself to change, that goes to
   [increpare/PuzzleScript](https://github.com/increpare/PuzzleScript).
 
