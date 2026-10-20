@@ -13,8 +13,8 @@ Eight levels across two level sets, with crates, doors and a short story.
 - <https://quantum-childminding.netlify.app>, or the dev tier at
   <https://dev--quantum-childminding.netlify.app> for whatever was merged most recently.
 - Locally: `npm run build`, then open `dist/index.html` in a browser.
-- In the PuzzleScript editor: paste `game/quantum-childminding.txt` into
-  <https://www.puzzlescript.net/editor.html> and press Run.
+- In the PuzzleScript editor: press **Edit this game** under the game, or open
+  <https://quantum-childminding.netlify.app/editor/editor.html?demo=quantum-childminding>.
 
 Arrow keys move, Z undoes, R restarts.
 
@@ -26,9 +26,10 @@ PuzzleScript games are one plain-text file. The engine is the
 | Path | What it is |
 |------|------------|
 | `game/quantum-childminding.txt` | The game. This is the only file most contributions touch. |
-| `vendor/puzzlescript/` | PuzzleScript's standalone export template, pinned to the upstream commit in `COMMIT`, plus the engine's license. |
-| `scripts/build.mjs` | Inlines the game into the template, the same way the editor's Export button does, and writes `dist/index.html`. |
-| `scripts/update-engine.mjs` | Re-pins the template to a newer upstream commit. |
+| `game/favicon.svg` | The favicon: the girl's sprite. |
+| `vendor/puzzlescript/` | PuzzleScript's editor and standalone export template, pinned to the upstream commit in `COMMIT`, plus the engine's license. |
+| `scripts/build.mjs` | Inlines the game into the template, the same way the editor's Export button does, and writes `dist/index.html`. Also copies the editor to `dist/editor/`, opened on this game, with its Share button turned into Submit. |
+| `scripts/update-engine.mjs` | Re-pins the vendored PuzzleScript to a newer upstream commit. |
 | `test/` | Checks that the build is complete and embeds the game exactly. `npm test`. |
 | `archive/` | Earlier community versions, kept for the record. Not built. |
 
