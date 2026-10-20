@@ -2,13 +2,18 @@
 
 This game grew because people who played it wanted to add to it. Please keep doing that.
 
-## The quick way: you don't need git
+## The quick way: right in the editor
 
-1. Open <https://www.puzzlescript.net/editor.html>, paste in
-   [`game/quantum-childminding.txt`](game/quantum-childminding.txt), and make your change.
-2. Play it through in the editor. If you added a level, make sure it can be won.
-3. Open an [issue](../../issues/new) with your script attached (or a PuzzleScript share link),
-   and say what you changed. A maintainer will turn it into a commit with your name on it.
+1. Press **Edit this game** under the game. The PuzzleScript editor opens with the current
+   version loaded.
+2. Make your change and play it through with **RUN**. If you added a level, make sure it can be
+   won.
+3. Press **SUBMIT**. It copies your version and opens the game file on GitHub: press **Fork this
+   repository** if asked, paste your version over the text, then **Propose changes** and
+   **Create pull request**. The pull request gets a link where anyone can play your version.
+
+No GitHub account? Open an [issue](../../issues/new) with your game attached and say what you
+changed. A maintainer will turn it into a commit with your name on it.
 
 ## The usual way: a pull request
 

@@ -1,0 +1,39 @@
+
+#consoletextarea {
+	  font-family: 'Consolas','Lucida Console',monospace;
+	  color: light-dark(#164,#428BDD);
+	  background-color:light-dark(#f4f4f4,#0F192A);
+	  margin-left:10px;
+	  margin-bottom: 20px;
+	  line-height:1.0;
+}
+
+.errorTextLineNumber {
+	color: light-dark(purple,yellow);
+	text-decoration: underline;
+}
+.warningText {
+	color: light-dark(#ff7700,orange);
+}
+.errorText {
+	color: red;
+}
+.betaText {
+	color: orange;
+}
+
+.hoverpreview::before{
+	content: url(../images/eye.svg);
+}
+.hoverpreview:hover {
+	background-color:light-dark(lightgray,#374b6c);
+}
+
+.noeye_indent {
+	content: url(../images/eye.svg);
+	visibility:hidden;
+}
+
+svg{
+	overflow: visible;
+}
