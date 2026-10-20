@@ -55,7 +55,7 @@ test("the favicon is inlined into the head", () => {
 test("the footer links to the editor and the repo, drawn in the game's font", () => {
   const html = buildHtml(source);
   assert.ok(html.includes(`href="${EDITOR_PAGE}"`));
-  assert.match(html, /aria-label="Add your own level"/);
+  assert.match(html, /aria-label="Collaborate"/);
   assert.doesNotMatch(html, /id="homepagelink"/);
 });
 

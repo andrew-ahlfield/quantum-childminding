@@ -13,7 +13,7 @@ Eight levels across two level sets, with crates, doors and a short story.
 - <https://quantum-childminding.netlify.app>, or the dev tier at
   <https://dev--quantum-childminding.netlify.app> for whatever was merged most recently.
 - Locally: `npm run build`, then open `dist/index.html` in a browser.
-- In the PuzzleScript editor: press **Edit this game** under the game, or open
+- In the PuzzleScript editor: press **Hack** under the game, or open
   <https://quantum-childminding.netlify.app/editor/editor.html?demo=quantum-childminding>.
 
 Arrow keys move, Z undoes, R restarts.
