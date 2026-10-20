@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 6" shape-rendering="crispEdges">
+  <!-- Schrodinger's daughter: the game's Child sprite, in PuzzleScript's default palette. -->
+  <rect width="6" height="6" rx="0.75" fill="#000000"/>
+  <g transform="translate(0.5 1)">
+    <rect x="1" y="0" width="3" height="1" fill="#a46422"/>
+    <rect x="0" y="1" width="5" height="1" fill="#f7e26b"/>
+    <rect x="1" y="2" width="3" height="1" fill="#de65e2"/>
+    <rect x="0" y="3" width="5" height="1" fill="#de65e2"/>
+  </g>
+</svg>

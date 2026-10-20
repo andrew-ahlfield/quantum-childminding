@@ -10,6 +10,7 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 export const GAME = join(root, "game", "quantum-childminding.txt");
+export const FAVICON = join(root, "game", "favicon.svg");
 const TEMPLATE = join(root, "vendor", "puzzlescript", "standalone_inlined.txt");
 const ENGINE_LICENSE = join(root, "vendor", "puzzlescript", "LICENSE");
 
@@ -33,7 +34,7 @@ export function readPrelude(source) {
   return meta;
 }
 
-export function buildHtml(source, template, engineLicense) {
+export function buildHtml(source, template, engineLicense, favicon) {
   const meta = readPrelude(source);
   const title = meta.title ?? "PuzzleScript Game";
   let homepage = meta.homepage ?? "https://www.puzzlescript.net";
@@ -52,6 +53,10 @@ export function buildHtml(source, template, engineLicense) {
   // Escaping "<" keeps a "</script>" inside the game source from closing the tag.
   html = sub(html, /"__GAMEDAT__"/g, JSON.stringify(source).replace(/</g, "\\u003c"));
 
+  // Inlined rather than linked so the build stays one self-contained file.
+  const icon = `<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,${encodeURIComponent(favicon.trim())}">`;
+  html = html.replace(/<\/title>/, (end) => `${end}\n${icon}`);
+
   // The page carries the PuzzleScript engine, so it carries the engine's MIT notice.
   const notice = `<!--\nPuzzleScript engine, https://github.com/increpare/PuzzleScript\n\n${engineLicense.trim()}\n-->`;
   return html.replace(/^(<!doctype html>)/i, (doctype) => `${doctype}\n${notice}`);
@@ -62,6 +67,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     readFileSync(GAME, "utf8"),
     readFileSync(TEMPLATE, "utf8"),
     readFileSync(ENGINE_LICENSE, "utf8"),
+    readFileSync(FAVICON, "utf8"),
   );
   const out = join(root, "dist", "index.html");
   mkdirSync(dirname(out), { recursive: true });
