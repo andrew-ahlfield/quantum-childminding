@@ -312,10 +312,10 @@ RULES
 (No escape)
 [> Player|Escape] -> CANCEL (added)
 
-(It's over)
-[EscapedChild] -> CANCEL (added)
+(She got away: if the girl, or anywhere she might be, reaches a door, say so and start the level again)
 late [Child Escape] -> [EscapedChild]
 late [Wave Escape] -> [EscapedChild]
+late [EscapedChild] -> restart message ⠀      Oh, bother! She's                slipped out the door.                                           Back to the start we go...
 
 (Decorate level)
 [Level1]->[random Level1X]
