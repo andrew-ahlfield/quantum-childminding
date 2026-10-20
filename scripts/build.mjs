@@ -54,7 +54,7 @@ export function loadFont(fontJs) {
 
 // Text drawn in the game's own pixel font, so the page's links match the screen above them.
 // Rows 0-1 of every glyph are empty, so they are cropped.
-export function pixelText(text, font) {
+export function pixelText(text, font, scale = 2) {
   let d = "";
   [...text].forEach((ch, i) => {
     const rows = (font[ch] ?? "").trim().split("\n");
@@ -65,7 +65,7 @@ export function pixelText(text, font) {
     });
   });
   const w = text.length * 6 - 1;
-  return `<svg class="pixeltext" viewBox="0 0 ${w} 10" width="${w * 2}" height="20" aria-hidden="true" shape-rendering="crispEdges"><path fill="currentColor" d="${d}"/></svg>`;
+  return `<svg class="pixeltext" viewBox="0 0 ${w} 10" width="${w * scale}" height="${10 * scale}" aria-hidden="true" shape-rendering="crispEdges"><path fill="currentColor" d="${d}"/></svg>`;
 }
 
 const PAGE_STYLE = `<style>
@@ -77,7 +77,43 @@ const PAGE_STYLE = `<style>
 .footer a { color: #8a8a8a; line-height: 0; text-decoration: none; padding: 4px; }
 .footer a:hover, .footer a:focus-visible { color: #ffffff; outline: none; }
 .footer a:focus-visible { box-shadow: 0 0 0 2px #ffffff; }
+.toast { position: absolute; left: 16px; right: 16px; bottom: 5em; margin: 0 auto; width: fit-content; z-index: 3;
+  max-width: calc(100% - 32px); box-sizing: border-box; padding: 14px 18px; color: #ffffff;
+  background: #000000; border: 2px solid #ffffff; display: flex; flex-direction: column;
+  align-items: center; gap: 10px; pointer-events: none; }
+.toast[hidden] { display: none; }
+.toast .touch { display: none; }
+@media (pointer: coarse) { .toast .keys { display: none; } .toast .touch { display: inline; } }
+.toast svg { max-width: 100%; height: auto; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 </style>`;
+
+// The escape toast. When the girl, or anywhere she might be, reaches a door, the game's rules
+// turn the door into an EscapedChild and freeze the level until the player undoes or restarts
+// (game/quantum-childminding.txt). The page says so over the game instead of cutting to a
+// message screen. It reads the engine's globals, so re-check it after npm run update-engine.
+const TOAST_STORY = "Oh, bother! She's slipped out the door.";
+const TOAST_KEYS = "Z to undo, R to restart";
+const TOAST_TOUCH = "Tap the menu to undo or restart";
+const TOAST_SCRIPT = `<script>
+(function () {
+  var toast = document.getElementById("escapeToast");
+  function escaped() {
+    if (typeof state === "undefined" || typeof level === "undefined") return false;
+    if (!state.objects || !state.objects.escapedchild || !level.n_tiles) return false;
+    if (textMode || titleScreen) return false;
+    var id = state.objects.escapedchild.id;
+    for (var i = 0; i < level.n_tiles; i++) {
+      if (level.getCell(i).get(id)) return true;
+    }
+    return false;
+  }
+  setInterval(function () {
+    var show = escaped();
+    if (toast.hidden === show) toast.hidden = !show;
+  }, 150);
+})();
+</script>`;
 
 export function buildHtml(source, { template, engineLicense, favicon, font }) {
   const meta = readPrelude(source);
@@ -102,6 +138,15 @@ export function buildHtml(source, { template, engineLicense, favicon, font }) {
     /<a id="homepagelink"[^>]*>[^<]*<\/a>/,
     footer,
   );
+
+  const toast = `<div id="escapeToast" class="toast" role="status" aria-live="polite" hidden>
+${pixelText(TOAST_STORY, font, 2)}
+<span class="keys">${pixelText(TOAST_KEYS, font, 3)}</span>
+<span class="touch">${pixelText(TOAST_TOUCH, font, 3)}</span>
+<span class="visually-hidden">${escapeHtml(`${TOAST_STORY} ${TOAST_KEYS}.`)}</span>
+</div>`;
+  html = html.replace(/<div class="footer">/, (footerStart) => `${toast}\n${footerStart}`);
+  html = html.replace(/<\/body>/, (end) => `${TOAST_SCRIPT}\n${end}`);
 
   // Inlined rather than linked so the game stays one self-contained file.
   const icon = `<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,${encodeURIComponent(favicon.trim())}">`;

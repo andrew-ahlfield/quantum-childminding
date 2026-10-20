@@ -71,3 +71,10 @@ test("the editor opens this game and submits to GitHub", () => {
   assert.doesNotMatch(html, /href="Documentation\//);
   assert.match(html, /<title>Edit Quantum Childminding/);
 });
+
+test("the page carries the escape toast, hidden until she gets out", () => {
+  const html = buildHtml(source);
+  assert.match(html, /<div id="escapeToast" class="toast" role="status" aria-live="polite" hidden>/);
+  assert.match(html, /Z to undo, R to restart/);
+  assert.match(source, /late \[Girl Escape\] -> \[EscapedChild\]/);
+});
