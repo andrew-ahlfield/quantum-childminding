@@ -2,7 +2,7 @@
 
 - **Mark Richardson** (Hand-E-Food): created the game, its mechanic and the first level set (2017).
 - **Nils Jung**: crates and doors mechanics, and the second level set (2017).
-- **C4t5_4_3v3r**: the expanded texture set, including the park's trees and flowers (2017).
+- **higherkey** (C4t5_4_3v3r in 2017): the expanded texture set, including the park's trees and flowers (2017).
 - **Andrew Ahlfield** (Wajeemba): the Park level, the merged expanded level set and the story (2017, 2021); maintainer.
 - **Stephen Lavelle** (increpare): [PuzzleScript](https://github.com/increpare/PuzzleScript), the engine the game runs on.
 
