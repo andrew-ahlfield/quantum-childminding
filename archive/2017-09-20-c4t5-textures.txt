@@ -1,0 +1,512 @@
+title Quantum Childminding Remix
+author Mark Richardson & Nils Jung
+noaction
+require_player_movement
+run_rules_on_level_start
+(verbose_logging)
+
+(Credit to level Park: Wajeemba
+Credit to Crates and Doors: N. Jung
+Credit to revised textures: Thutrian)
+========
+OBJECTS
+========
+
+Background ,
+Black
+
+Player @
+White Gray Pink Green
+.000.
+.323.
+00000
+.111.
+11111
+
+Wave .
+Pink
+.....
+.....
+..0..
+.....
+.....
+
+Child
+Brown Yellow Pink
+.....
+.000.
+11111
+.222.
+22222
+
+Move1
+Transparent
+
+Move2
+Transparent
+
+WallA A
+LightGray
+
+(Window)
+WallB B
+LightGray LightBlue
+11011
+11011
+00000
+11011
+11011
+
+WallBrick F
+LightGray DarkGray Gray 
+10101
+11101
+10201
+10111
+10101
+
+WallBrick1 G
+LightGray DarkGray Gray 
+10100
+11100
+10100
+10121
+10100
+
+
+(WallC C
+Blue DarkBlue LightBlue
+00101
+10110
+01010
+10101
+10100)
+
+WallOcn C
+Blue DarkBlue LightBlue
+00101
+10110
+01010
+10101
+10100
+(I believe the randomization nullifies the texture in "C". This original texture does not show up any more)
+
+(light blue: blue - med: #0231d8 - dark: #162f72)
+WallOcn1
+Blue #0231d8 #162f72 
+00101
+10110
+10001
+01100
+20011
+
+WallOcn2
+Blue #0231d8 #162f72
+01010
+10001
+00010
+01001
+00110
+
+WallOcn3
+Blue #0231d8 #162f72
+10100
+02201
+10100
+00010
+02110
+
+WallOcn4
+Blue #0231d8 #162f72
+01001
+00120
+01011
+01101
+10100
+
+
+Level1 1
+Brown Black
+00000
+01110
+01110
+01110
+00000
+
+Level1A
+Brown #F00 #D00
+01210
+02120
+01210
+02120
+00000
+
+Level1B
+Brown #F80 #D70
+01210
+02120
+01210
+02120
+00000
+
+Level1C
+Brown #FF0 #DD0
+01210
+02120
+01210
+02120
+00000
+
+Level1D
+Brown #8F0 #7D0
+01210
+02120
+01210
+02120
+00000
+
+Level1E
+Brown #0F0 #0D0
+01210
+02120
+01210
+02120
+00000
+
+Level2 2
+Brown Black
+11111
+11111
+00000
+11111
+00000
+
+Level2A
+Brown DarkGreen Purple LightBlue Orange
+34412
+34412
+00000
+12334
+00000
+
+Level2B
+Brown Red White Black Blue
+34412
+34412
+00000
+12334
+00000
+
+Level2C
+Brown LightGreen Green Yellow LightRed
+34412
+34412
+00000
+12334
+00000
+
+Level2D
+Brown Pink DarkBrown DarkBlue Grey
+34412
+34412
+00000
+12334
+00000
+
+Level2E
+Brown LightGrey LightBrown DarkGrey DarkRed
+34412
+34412
+00000
+12334
+00000
+
+Level3 3
+Brown Black
+00000
+01110
+01110
+01110
+00000
+
+Level3A
+Brown LightBlue
+00000
+01110
+01110
+01110
+00000
+
+Level3B
+Brown Grey LightGrey
+00000
+01210
+02120
+01210
+00000
+
+Level3C
+Brown LightBrown
+..1..
+.100.
+..1..
+.100.
+.100.
+
+Level3D
+White Red Black
+00000
+.000.
+11121
+12111
+.000.
+
+Level3E
+Brown DarkBrown
+00000
+11011
+00000
+01101
+00000
+
+(light #45a52f, A-B dark 21450f, C-D dark #2c5a14)
+LevelForest 4
+Green DarkGreen LightGreen
+00100
+10001
+01011
+01001
+11010
+
+LevelForestA
+Green #21450f #5ab62b
+10010
+02010
+00100
+00221
+01010
+
+LevelForestB
+Green #2c5a14 #5ab62b
+10120
+10000
+00100
+20011
+01010
+
+LevelForestC
+Green #2c5a14 #5ab62b
+01012
+01001
+00101
+10000
+01020
+
+LevelForestD
+Green #21450f #45a52f Red
+01032
+31001
+00131
+13000
+01020
+
+LevelForestE
+Green #21450f #45a52f
+10100
+10000
+00100
+10011
+01010
+
+Crate #
+brown orange
+11111
+11011
+10101
+11011
+11111
+
+Escape E
+brown yellow lightgray
+20002
+00000
+00010
+00000
+00000
+
+EscapedChild
+pink yellow lightgray
+20002
+00000
+00010
+00000
+00000
+
+=======
+LEGEND
+=======
+
+Level1X = Level1A or Level1B or Level1C or Level1D or Level1E
+Level2X = Level2A or Level2B or Level2C or Level2D or Level2E
+Level3X = Level3A or Level3B or Level3C or Level3D or Level3E
+LevelForestX = LevelForestA or LevelForestB or LevelForestC or LevelForestD or LevelForestE
+WallOcnX = WallOcn1 or WallOcn2 or WallOcn3 or WallOcn4
+Wall = A or B or C or WallOcnX or 1 or Level1X or 2 or Level2X or 3 or Level3X or 4 or LevelForestX or Crate or F or G
+
+
+=======
+SOUNDS
+=======
+
+
+================
+COLLISIONLAYERS
+================
+
+Background
+Escape, EscapedChild
+Wave, Child, Move1, Move2
+Player, Wall
+
+
+======
+RULES
+======
+
+(No escape)
+[> Player|Escape] -> CANCEL (added)
+
+(It's over)
+[EscapedChild] -> CANCEL (added)
+late [Child Escape] -> [EscapedChild]
+late [Wave Escape] -> [EscapedChild]
+
+(Decorate level)
+[Level1]->[random Level1X]
+[Level2]->[random Level2X]
+[Level3]->[random Level3X]
+[LevelForest]->[random LevelForestX]
+[WallOcn]->[random WallOcnX]
+
+(Change Move counter)
+[Move1]->[]
+random [Wall]->[action Wall]
+[Move2][action Wall]->[][stationary Wall Move1]
+[action Wall]->[stationary Wall Move2]
+
+(Move Nanny)
+[> Player|no Wall]->[|stationary Player]
+[> Player|Crate|no Wall no Wave]->[|stationary Player|Crate] (added)
+
+(Expand Wave)
+[Child no Player]->[Wave]
+[Move1][stationary Wave]->[Move1][action Wave]
+[action Wave|no Wave no Wall no Player]->[action Wave|stationary Wave]
+[action Wave]->[stationary Wave]
+
+(Observe Wave)
+(... at Nanny's location)
+[Player Wave]->[Player up Wave]
+[up Wave][stationary Wave]->[][stationary Wave]
+[up Wave]->[stationary Child]
+(... in Nanny's line of sight)
+[Player|no Wall stationary Background]->[Player|> Background]
+startloop
+[moving Background stationary Wave]->[moving Background action Wave]
+[> Background|no Wall stationary Background]->[> Background|action Background]
+[> Background|stationary Background]->[stationary Background|stationary Background]
+[> Background|action Background]->[stationary Background|> Background]
+random[action Wave]->[up Wave]
+[action Wave]->[]
+[up Wave][stationary Wave]->[][stationary Wave]
+[up Wave]->[stationary Child]
+endloop
+
+
+==============
+WINCONDITIONS
+==============
+
+some Player on Child
+
+
+=======
+LEVELS
+=======
+
+message Grocery Store
+
+message Introducing: Crates! Crates can be pushed by the nanny and are too heavy to be moved by the girl.
+
+message However, you must not hit the girl with a crate! Make absolutely sure that there is nobody behind the crate before pushing it.
+
+AAAAAAAAAAAAAAA
+A1111111111111B
+A1...........1B
+A1.11.1#1.11.1A
+A1.11.....11.1B
+A1....111....1A
+A1.11.....11.1B
+A1.11.1#1.11.1A
+A1.....@.....1B
+A1111111111111B
+AAAAAAAAAAAAAAA
+
+message Toy Shop
+
+message Introducing: Doors... If the girl (potentially) reaches the door, she could run outside and you would never find her again!
+
+AABBAAAAAAABBAA
+A22222AAA22222A
+A2...2...2...2A
+A2.2.2.A.2.2.2A
+A2.2...A...2.2A
+A2.2.2...2.2.2A
+A2...2A.A2...2A
+AAAAAAA.AAAAAAA
+A2...........2A
+A2.2222.2222.2A
+A2.22.....22.2A
+A2.22.2.2.22.2A
+A2.....@.....2A
+A222222E222222A
+ABBBBBBABBBBBBA
+
+message Museum
+
+AABBBAAABBBAAABBBAA
+A.....A..#..A.....A
+B.3.3.A.3.3.A.3.3.B
+B........@........B
+B33.33A33.33A33.33B
+A33.33A33.33A33.33A
+AAA.AAAAA.AAAAA.AAA
+A...33A33.33A33...A
+B.3.33A33.33A33.3.B
+B.3.............3.B
+B.3.33A.3#3.A33.3.B
+A...33A.....A33...A
+AABBBAAABBBAAABBBAA
+
+message Park
+
+CCCCCCCCCCCCCCCCCCCCC
+CFGGGGGGGGGGGGGGGGGFC
+CF44444444444444444FC
+CF444,,,,,,,,,,,444FC
+CF4,,,444,4,444,,,4FC
+CF4,44444,4,44444,4FC
+CF4,44444,4,44444,4FC
+CF4,4,,,4,,,4,,,4,4FC
+CF4,4,4,44,44,4,4,4FC
+CF4,4,,,,,,,,,,,4,4FC
+CF4,4,4,44,44,4,4,4FC
+CF4,4,,,,,,,,,,,4,4FC
+CF4,4,4,44444,4,4,4FC
+CF4,,,,,,,,,,,,,,,4FC
+CF4,444444.444444,4FC
+CF4,,,,,,,,,,,,,,@4FC
+CFGGGEGGGGEGGGGEGGGFC
+CCCCCCCCCCCCCCCCCCCCC
+
+message For goodness sake, child!  I'm putting you in a crate so I never lose you again.

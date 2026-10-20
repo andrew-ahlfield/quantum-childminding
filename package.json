@@ -1,0 +1,13 @@
+{
+  "name": "quantum-childminding",
+  "private": true,
+  "description": "Quantum Childminding, a PuzzleScript game",
+  "license": "MIT",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "update-engine": "node scripts/update-engine.mjs"
+  }
+}
