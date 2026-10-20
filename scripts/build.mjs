@@ -91,11 +91,11 @@ export function buildHtml(source, { template, engineLicense, favicon, font }) {
   html = sub(html, /"__GAMEDAT__"/g, JSON.stringify(source).replace(/</g, "\\u003c"));
 
   const links = [
-    ["Edit this game", EDITOR_PAGE],
-    ["Add your own level", REPO],
+    ["Hack", EDITOR_PAGE, "Change this game in the PuzzleScript editor"],
+    ["Collaborate", REPO, "Add your own level on GitHub"],
   ];
   const footer = links
-    .map(([label, href]) => `<a href="${href}" aria-label="${label}" title="${label}">${pixelText(label, font)}</a>`)
+    .map(([label, href, hint]) => `<a href="${href}" aria-label="${label}" title="${hint}">${pixelText(label, font)}</a>`)
     .join("\n");
   html = sub(
     html,

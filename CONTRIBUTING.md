@@ -4,7 +4,7 @@ This game grew because people who played it wanted to add to it. Please keep doi
 
 ## The quick way: right in the editor
 
-1. Press **Edit this game** under the game. The PuzzleScript editor opens with the current
+1. Press **Hack** under the game. The PuzzleScript editor opens with the current
    version loaded.
 2. Make your change and play it through with **RUN**. If you added a level, make sure it can be
    won.
